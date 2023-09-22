@@ -1,0 +1,19 @@
+config:
+  PROVIDER_URI: https://polygon.llamarpc.com
+  STREAM_OUTPUT: projects/circle-ds-pipelines/topics/polygon
+  ROOT_ENTITY_TYPE: block
+  ENTITY_TYPES: block,transaction,log,token_transfer
+  GCS_PREFIX: gs://circle-blockchain-etl-streaming/polygon
+  CHAIN: polygon
+  CHAIN_TYPE: ethereum
+  LAG_BLOCKS: 200
+  BLOCK_BATCH_SIZE: 10
+
+stream:
+  resources:
+    requests:
+      memory: "2048Mi"
+      cpu: "300m"
+    limits:
+      memory: "4096Mi"
+      cpu: "800m"

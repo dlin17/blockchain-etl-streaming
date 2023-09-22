@@ -1,0 +1,19 @@
+config:
+  PROVIDER_URI: https://mainnet.base.org,https://base.blockpi.network/v1/rpc/public
+  STREAM_OUTPUT: projects/circle-ds-pipelines/topics/base
+  ROOT_ENTITY_TYPE: block
+  ENTITY_TYPES: block,transaction,log,token_transfer
+  GCS_PREFIX: gs://circle-blockchain-etl-streaming/base
+  CHAIN: base
+  CHAIN_TYPE: ethereum
+  LAG_BLOCKS: 30
+  BLOCK_BATCH_SIZE: 10
+
+stream:
+  resources:
+    requests:
+      memory: "2048Mi"
+      cpu: "300m"
+    limits:
+      memory: "4096Mi"
+      cpu: "800m"

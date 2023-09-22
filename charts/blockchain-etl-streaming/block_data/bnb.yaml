@@ -1,0 +1,18 @@
+config:
+  PROVIDER_URI: https://bsc-dataseed4.binance.org/
+  STREAM_OUTPUT: projects/circle-ds-pipelines/topics/bnb
+  ROOT_ENTITY_TYPE: block
+  ENTITY_TYPES: block,transaction,log,token_transfer
+  GCS_PREFIX: gs://circle-blockchain-etl-streaming/bnb
+  CHAIN: bnb
+  CHAIN_TYPE: ethereum
+  LAG_BLOCKS: 300
+  BLOCK_BATCH_SIZE: 25
+
+
+stream:
+  resources:
+    requests:
+      memory: "1024Mi"
+    limits:
+      memory: "2048Mi"

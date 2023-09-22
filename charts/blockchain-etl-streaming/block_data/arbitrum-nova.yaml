@@ -1,0 +1,20 @@
+config:
+  PROVIDER_URI: https://arbitrum-nova.publicnode.com
+  STREAM_OUTPUT: projects/circle-ds-pipelines/topics/arbitrum_nova
+  ROOT_ENTITY_TYPE: block
+  ENTITY_TYPES: block,transaction,log,token_transfer
+  GCS_PREFIX: gs://circle-blockchain-etl-streaming/arbitrum_nova
+  CHAIN: arbitrum_nova
+  CHAIN_TYPE: ethereum
+  LAG_BLOCKS: 30
+  BLOCK_BATCH_SIZE: 250
+
+
+stream:
+  resources:
+    requests:
+      memory: "2048Mi"
+      cpu: "300m"
+    limits:
+      memory: "4096Mi"
+      cpu: "800m"

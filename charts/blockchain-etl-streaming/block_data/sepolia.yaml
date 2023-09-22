@@ -1,0 +1,17 @@
+config:
+  PROVIDER_URI: https://ethereum-sepolia.blockpi.network/v1/rpc/public
+  STREAM_OUTPUT: projects/circle-ds-pipelines/topics/ethereum_sepolia
+  ROOT_ENTITY_TYPE: block
+  ENTITY_TYPES: block,transaction,log,token_transfer
+  GCS_PREFIX: gs://circle-blockchain-etl-streaming/ethereum_sepolia
+  CHAIN: ethereum_sepolia
+  CHAIN_TYPE: ethereum
+  LAG_BLOCKS: 30
+  BLOCK_BATCH_SIZE: 25
+
+stream:
+  resources:
+    requests:
+      memory: "1024Mi"
+    limits:
+      memory: "2048Mi"

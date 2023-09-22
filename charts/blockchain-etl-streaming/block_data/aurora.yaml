@@ -1,0 +1,10 @@
+config:
+  PROVIDER_URI: https://mainnet.aurora.dev
+  STREAM_OUTPUT: projects/circle-ds-pipelines/topics/aurora
+  ROOT_ENTITY_TYPE: block
+  ENTITY_TYPES: block,transaction,log,token_transfer
+  GCS_PREFIX: gs://circle-blockchain-etl-streaming/aurora
+  CHAIN: aurora
+  CHAIN_TYPE: ethereum
+  LAG_BLOCKS: 200
+  BLOCK_BATCH_SIZE: 50
