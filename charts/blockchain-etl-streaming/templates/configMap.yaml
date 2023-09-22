@@ -11,3 +11,6 @@ data:
   LAG_BLOCKS: "{{ .Values.config.LAG_BLOCKS }}"
   MAX_WORKERS: "{{ .Values.config.MAX_WORKERS }}"
   ENTITY_TYPES: "{{ .Values.config.ENTITY_TYPES }}"
+  CHAIN: "{{ .Values.config.CHAIN }}"
+  CHAIN_TYPE: "{{ .Values.config.CHAIN_TYPE }}"
+  BLOCK_BATCH_SIZE: "{{ .Values.config.BLOCK_BATCH_SIZE }}"

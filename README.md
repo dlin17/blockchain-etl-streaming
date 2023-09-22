@@ -1,3 +1,11 @@
+# notes on managing streams
+
+- hardest part is keeping track of which blocks you have already downloaded
+- container syncs `last_synced_block.txt` into GCS every 60s but guarantee you read a block exactly once when jobs restart
+- container can restart if you push an upgrade or OOM
+- avoid `helm upgrade`, use `helm uninstall` and then `helm install` to force a GCS sync
+- be careful with memory, the larger your block batch size the more memory it will require, use a generous memory allocation when backfilling with large block batch sizes, can be scaled down afterwards
+
 # Blockchain ETL Streaming
 
 Streams the following Ethereum entities to Pub/Sub or Postgres using 

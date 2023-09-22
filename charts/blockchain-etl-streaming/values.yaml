@@ -23,24 +23,17 @@ init:
     repository: google/cloud-sdk
     tag: 292.0.0-alpine
     pullPolicy: IfNotPresent
-  resources:
-    requests:
-      memory: "64Mi"
-      cpu: "50m"
-    limits:
-      memory: "128Mi"
-      cpu: "100m"
 stream:
   image:
-    repository: blockchainetl/bitcoin-etl
-    tag: 1.4.0-streaming
+    repository: us-central1-docker.pkg.dev/circle-ds-pipelines/blockchain-etl/blockchainetl
+    tag: latest
     pullPolicy: IfNotPresent
   resources:
     requests:
-      memory: "128Mi"
+      memory: "256Mi"
       cpu: "100m"
     limits:
-      memory: "512Mi"
+      memory: "1024Mi"
       cpu: "350m"
   env:
     LAST_SYNCED_BLOCK_FILE_MAX_AGE_IN_SECONDS: "600"

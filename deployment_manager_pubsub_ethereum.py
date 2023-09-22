@@ -1,12 +1,12 @@
 def GenerateConfig(context):
     resources = []
 
-    chains = ['ethereum']
+    chains = ['arbitrum_nova']
     entity_types = ['blocks', 'transactions', 'logs', 'token_transfers', 'traces', 'contracts', 'tokens']
 
     for chain in chains:
-        topic_name_prefix = 'crypto_' + chain
-        subscription_name_prefix = 'crypto_' + chain + '.dataflow.bigquery'
+        topic_name_prefix = chain
+        subscription_name_prefix = chain + '.bigquery'
         # 7 days
         message_retention_duration = '604800s'
 
@@ -20,15 +20,20 @@ def GenerateConfig(context):
                 'type': 'pubsub.v1.topic',
                 'properties': {
                     'topic': topic_name
+                },
+                'schemaSettings' : {
+                    'encoding' : 'JSON',
+                    'schema' : 'projects/circle-ds-pipelines/schemas/evmLog_proto2'
                 }
             })
+            
             resources.append({
                 'name': subscription_resource_name,
                 'type': 'pubsub.v1.subscription',
                 'properties': {
                     'subscription': subscription_name,
                     'topic': '$(ref.' + topic_resource_name + '.name)',
-                    'ackDeadlineSeconds': 30,
+                    'ackDeadlineSeconds': 120,
                     'retainAckedMessages': True,
                     'messageRetentionDuration': message_retention_duration,
                     'expirationPolicy': {
