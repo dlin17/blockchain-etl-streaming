@@ -1,0 +1,17 @@
+syntax = "proto2";
+
+message Transfer {
+  required string token_address = 1; // ERC20 token address
+  optional string from_address = 2; // Address of the sender
+  optional string to_address = 3; // Address of the receiver
+  optional string value = 4; // Amount of tokens transferred (ERC20) / id of the token transferred (ERC721). Use safe_cast for casting to NUMERIC or FLOAT64
+  required string transaction_hash = 5; // Transaction hash
+  required int32 log_index = 6; // Log index in the transaction receipt
+  required string block_timestamp = 7; // Timestamp of the block where this transfer was in
+  required int32 block_number = 8; // Block number where this transfer was in
+  required string block_hash = 9; // Hash of the block where this transfer was in
+  optional int32 transaction_nonce = 10;
+  optional string origin_from_address = 11;
+  optional string origin_to_address = 12;
+  optional string function_signature = 13;
+}

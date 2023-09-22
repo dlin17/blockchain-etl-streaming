@@ -1,0 +1,25 @@
+syntax = "proto2";
+
+message Trace {
+
+    optional string transaction_hash = 1; // Transaction hash where this trace was in
+    optional int32 transaction_index = 2; // Integer of the transactions index position in the block
+    optional string from_address = 3; // Address of the sender, null when trace_type is genesis or reward
+    optional string to_address = 4; // Address of the receiver if trace_type is call, address of new contract or null if trace_type is create, beneficiary address if trace_type is suicide, miner address if trace_type is reward, shareholder address if trace_type is genesis, WithdrawDAO address if trace_type is daofork
+    optional string value = 5; // Value transferred in Wei
+    optional string input = 6; // The data sent along with the message call
+    optional string output = 7; // The output of the message call, bytecode of contract when trace_type is create
+    required string trace_type = 8; // One of call, create, suicide, reward, genesis, daofork
+    optional string call_type = 9; // One of call, callcode, delegatecall, staticcall
+    optional string reward_type = 10; // One of block, uncle
+    optional int32 gas = 11; // Gas provided with the message call
+    optional int32 gas_used = 12; // Gas used by the message call
+    optional int32 subtraces = 13; // Number of subtraces
+    optional string trace_address = 14; // Comma separated list of trace address in call tree
+    optional string error = 15; // Error if message call failed. This field doesn't contain top-level trace errors.
+    optional int32 status = 16; // Either 1 (success) or 0 (failure, due to any operation that can cause the call itself or any top-level call to revert)
+    optional string trace_id = 17; // Unique string that identifies the trace. For transaction-scoped traces it is {trace_type}_{transaction_hash}_{trace_address}. For block-scoped traces it is {trace_type}_{block_number}_{index_within_block}
+    required string block_timestamp = 18; // Timestamp of the block where this trace was in
+    required int32 block_number = 19; // Block number where this trace was in
+    required string block_hash = 20; // Hash of the block where this trace was in
+}

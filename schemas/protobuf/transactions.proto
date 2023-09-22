@@ -1,0 +1,28 @@
+syntax = "proto2";
+
+message Transaction {
+    // Required fields
+    required string hash = 1;  // Hash of the transaction
+    required int64 nonce = 2;  // The number of transactions made by the sender prior to this one
+    required int64 transaction_index = 3;  // Integer of the transactions index position in the block
+    required string from_address = 4;  // Address of the sender
+    required string block_timestamp = 5;  // Timestamp of the block where this transaction was in
+    required int64 block_number = 6;  // Block number where this transaction was in
+    required string block_hash = 7;  // Hash of the block where this transaction was in
+
+    // Nullable fields
+    optional string to_address = 8;  // Address of the receiver. null when it's a contract creation transaction
+    optional string value = 9;  // Value transferred in Wei
+    optional int64 gas = 10;  // Gas provided by the sender
+    optional int64 gas_price = 11;  // Gas price provided by the sender in Wei
+    optional string input = 12;  // The data sent along with the transaction
+    optional int64 receipt_cumulative_gas_used = 13;  // The total amount of gas used when this transaction was executed in the block
+    optional int64 receipt_gas_used = 14;  // The amount of gas used by this specific transaction alone
+    optional string receipt_contract_address = 15;  // The contract address created, if the transaction was a contract creation, otherwise null
+    optional string receipt_root = 16;  // 32 bytes of post-transaction stateroot (pre Byzantium)
+    optional int32 receipt_status = 17;  // Either 1 (success) or 0 (failure) (post Byzantium)
+    optional int64 max_fee_per_gas = 18;  // Total fee that covers both base and priority fees
+    optional int64 max_priority_fee_per_gas = 19;  // Fee given to miners to incentivize them to include the transaction
+    optional int32 transaction_type = 20;  // Transaction type
+    optional int64 receipt_effective_gas_price = 21;  // The actual value per gas deducted from the senders account. Replacement of gas_price after EIP-1559
+}

@@ -1,0 +1,33 @@
+syntax = "proto2";
+
+message Block {
+  required string timestamp = 1;  // The timestamp for when the block was collated
+  required int32 number = 2;  // The block number
+  required string hash = 3;  // Hash of the block
+  optional string parent_hash = 4;  // Hash of the parent block
+  required string nonce = 5;  // Hash of the generated proof-of-work
+  optional string sha3_uncles = 6;  // SHA3 of the uncles data in the block
+  optional string logs_bloom = 7;  // The bloom filter for the logs of the block
+  optional string transactions_root = 8;  // The root of the transaction trie of the block
+  optional string state_root = 9;  // The root of the final state trie of the block
+  optional string receipts_root = 10;  // The root of the receipts trie of the block
+  optional string miner = 11;  // The address of the beneficiary to whom the mining rewards were given
+  optional string difficulty = 12;  // Integer of the difficulty for this block
+  optional string total_difficulty = 13;  // Integer of the total difficulty of the chain until this block
+  optional int64 size = 14;  // The size of this block in bytes
+  optional string extra_data = 15;  // The extra data field of this block
+  optional int64 gas_limit = 16;  // The maximum gas allowed in this block
+  optional int64 gas_used = 17;  // The total used gas by all transactions in this block
+  optional int32 transaction_count = 18;  // The number of transactions in the block
+  optional int64 base_fee_per_gas = 19;  // Protocol base fee per gas, which can move up or down
+  optional string withdrawals_root = 20;  // The root of the withdrawal trie of the block
+  
+  repeated Withdrawal withdrawals = 21;  // Validator withdrawals
+
+  message Withdrawal {
+    optional int32 index = 1;  // Index for withdrawal
+    optional int32 validator_index = 2;  // Index for validator
+    optional string address = 3;  // Address for withdrawal
+    optional string amount = 4;  // Amount for withdrawal
+  }
+}
