@@ -1,5 +1,6 @@
 from google.cloud import pubsub_v1, bigquery
 from google.auth import default
+from google.cloud.bigquery import TimePartitioningType, TimePartitioning
 
 import sys
 
@@ -40,6 +41,12 @@ for entity_type in entity_types:
         print(f"Table {table_id} already exists")
     except:
         table = bigquery.Table(table_id, schema=table_schema)
+        partition_key = "timestamp" if entity_type == "blocks" else "block_timestamp"
+        table.time_partitioning = TimePartitioning(
+            type_=TimePartitioningType.DAY, field=partition_key
+        )
+        table.clustering_fields = [partition_key]
+
         table = client.create_table(table)
         print(f"Created table {table.project}.{table.dataset_id}.{table.table_id}")
 

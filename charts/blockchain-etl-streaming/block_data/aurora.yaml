@@ -7,4 +7,4 @@ config:
   CHAIN: aurora
   CHAIN_TYPE: ethereum
   LAG_BLOCKS: 200
-  BLOCK_BATCH_SIZE: 50
+  BLOCK_BATCH_SIZE: 20
