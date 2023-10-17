@@ -1,0 +1,10 @@
+config:
+  PROVIDER_URI: https://rpc.zora.energy
+  STREAM_OUTPUT: projects/circle-ds-pipelines/topics/zora
+  ROOT_ENTITY_TYPE: block
+  ENTITY_TYPES: block,transaction,log,token_transfer
+  GCS_PREFIX: gs://circle-blockchain-etl-streaming/zora
+  CHAIN: zora
+  CHAIN_TYPE: ethereum
+  LAG_BLOCKS: 40
+  BLOCK_BATCH_SIZE: 40
