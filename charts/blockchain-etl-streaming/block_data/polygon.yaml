@@ -1,5 +1,5 @@
 config:
-  PROVIDER_URI: https://polygon-bor.publicnode.com
+  PROVIDER_URI: https://prod-matic-mainnet-erigon-us-east-1.blockchain.circle.com:8545/
   STREAM_OUTPUT: projects/circle-ds-pipelines/topics/polygon
   ROOT_ENTITY_TYPE: block
   ENTITY_TYPES: block,transaction,log,token_transfer

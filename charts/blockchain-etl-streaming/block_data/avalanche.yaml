@@ -1,5 +1,5 @@
 config:
-  PROVIDER_URI: https://api.avax.network/ext/bc/C/rpc
+  PROVIDER_URI: https://prod-avalanche-mainnet-us-east-1.blockchain.circle.com:9650/ext/bc/C/rpc
   STREAM_OUTPUT: projects/circle-ds-pipelines/topics/avalanche
   ROOT_ENTITY_TYPE: block
   ENTITY_TYPES: block,transaction,log,token_transfer
