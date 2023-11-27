@@ -1,0 +1,10 @@
+config:
+  PROVIDER_URI: https://stylus-testnet.arbitrum.io/rpc
+  STREAM_OUTPUT: projects/circle-ds-pipelines/topics/arbitrum_stylus
+  ROOT_ENTITY_TYPE: block
+  ENTITY_TYPES: block,transaction,log,token_transfer
+  GCS_PREFIX: gs://circle-blockchain-etl-streaming/arbitrum_stylus
+  CHAIN: arbitrum_stylus
+  CHAIN_TYPE: ethereum
+  LAG_BLOCKS: 5
+  BLOCK_BATCH_SIZE: 100
