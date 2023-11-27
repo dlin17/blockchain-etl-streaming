@@ -27,7 +27,7 @@ stream:
   image:
     repository: us-central1-docker.pkg.dev/circle-ds-pipelines/blockchain-etl/blockchainetl
     tag: latest
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
   resources:
     requests:
       memory: "256Mi"

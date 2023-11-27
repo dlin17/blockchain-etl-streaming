@@ -7,4 +7,11 @@ config:
   CHAIN: zksync
   CHAIN_TYPE: ethereum
   LAG_BLOCKS: 30
-  BLOCK_BATCH_SIZE: 250
+  BLOCK_BATCH_SIZE: 50
+
+stream:
+  resources:
+    requests:
+      memory: "1024Mi"
+    limits:
+      memory: "2048Mi"

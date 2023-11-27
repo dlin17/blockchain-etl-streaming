@@ -1,5 +1,5 @@
 config:
-  PROVIDER_URI: https://rpc.ankr.com/celo
+  PROVIDER_URI: https://forno.celo.org
   STREAM_OUTPUT: projects/circle-ds-pipelines/topics/celo
   ROOT_ENTITY_TYPE: block
   ENTITY_TYPES: block,transaction,log,token_transfer

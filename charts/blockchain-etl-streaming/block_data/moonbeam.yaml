@@ -1,5 +1,5 @@
 config:
-  PROVIDER_URI: https://rpc.ankr.com/moonbeam
+  PROVIDER_URI: https://moonbeam.unitedbloc.com:3000
   STREAM_OUTPUT: projects/circle-ds-pipelines/topics/moonbeam
   ROOT_ENTITY_TYPE: block
   ENTITY_TYPES: block,transaction,log,token_transfer

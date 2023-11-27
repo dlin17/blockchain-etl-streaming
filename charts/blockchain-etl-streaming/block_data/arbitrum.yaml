@@ -7,4 +7,13 @@ config:
   CHAIN: base
   CHAIN_TYPE: ethereum
   LAG_BLOCKS: 30
-  BLOCK_BATCH_SIZE: 50
+  BLOCK_BATCH_SIZE: 1000
+
+stream:
+  resources:
+    requests:
+      memory: "2048Mi"
+      cpu: "300m"
+    limits:
+      memory: "4096Mi"
+      cpu: "800m"

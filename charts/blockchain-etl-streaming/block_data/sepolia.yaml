@@ -7,7 +7,7 @@ config:
   CHAIN: ethereum_sepolia
   CHAIN_TYPE: ethereum
   LAG_BLOCKS: 30
-  BLOCK_BATCH_SIZE: 25
+  BLOCK_BATCH_SIZE: 5
 
 stream:
   resources:
