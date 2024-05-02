@@ -1,0 +1,10 @@
+config:
+  PROVIDER_URI: https://twilight-responsive-field.base-mainnet.quiknode.pro/908014a38cca01575f9dca36adff311b245eb650/
+  STREAM_OUTPUT: projects/circle-ds-pipelines/topics/base
+  ROOT_ENTITY_TYPE: block
+  ENTITY_TYPES: trace,contract,token
+  GCS_PREFIX: gs://circle-blockchain-etl-streaming/traces/base
+  CHAIN: base
+  CHAIN_TYPE: ethereum
+  LAG_BLOCKS: 15
+  BLOCK_BATCH_SIZE: 10

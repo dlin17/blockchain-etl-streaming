@@ -1,0 +1,10 @@
+config:
+  PROVIDER_URI: https://radial-wispy-feather.optimism.quiknode.pro/2e0cecb02a62e4a21451ceb27ae26f2b389fd5c4/
+  STREAM_OUTPUT: projects/circle-ds-pipelines/topics/optimism_v3
+  ROOT_ENTITY_TYPE: block
+  ENTITY_TYPES: trace,contract,token
+  GCS_PREFIX: gs://circle-blockchain-etl-streaming/traces/optimism
+  CHAIN: optimism
+  CHAIN_TYPE: ethereum
+  LAG_BLOCKS: 30
+  BLOCK_BATCH_SIZE: 10

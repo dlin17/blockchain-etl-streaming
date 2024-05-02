@@ -1,0 +1,19 @@
+config:
+  PROVIDER_URI: https://prod-arbitrum-mainnet-us-east-1.blockchain.circle.com:8547
+  STREAM_OUTPUT: projects/circle-ds-pipelines/topics/arbitrum_v3
+  ROOT_ENTITY_TYPE: block
+  ENTITY_TYPES: trace,contract,token
+  GCS_PREFIX: gs://circle-blockchain-etl-streaming/traces/arbitrum
+  CHAIN: arbitrum
+  CHAIN_TYPE: ethereum
+  LAG_BLOCKS: 30
+  BLOCK_BATCH_SIZE: 40
+
+stream:
+  resources:
+    requests:
+      memory: "2048Mi"
+      cpu: "300m"
+    limits:
+      memory: "4096Mi"
+      cpu: "800m"

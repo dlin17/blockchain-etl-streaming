@@ -1,0 +1,10 @@
+config:
+  PROVIDER_URI: https://hidden-prettiest-pool.blast-mainnet.quiknode.pro/72340db937cc89d53aaf9eae5e71864346ba7e65/
+  STREAM_OUTPUT: projects/circle-ds-pipelines/topics/blast
+  ROOT_ENTITY_TYPE: block
+  ENTITY_TYPES: trace,contract,token
+  GCS_PREFIX: gs://circle-blockchain-etl-streaming/traces/blast
+  CHAIN: blast
+  CHAIN_TYPE: ethereum
+  LAG_BLOCKS: 30
+  BLOCK_BATCH_SIZE: 10
