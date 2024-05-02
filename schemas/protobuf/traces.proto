@@ -12,8 +12,8 @@ message Trace {
     required string trace_type = 8; // One of call, create, suicide, reward, genesis, daofork
     optional string call_type = 9; // One of call, callcode, delegatecall, staticcall
     optional string reward_type = 10; // One of block, uncle
-    optional int32 gas = 11; // Gas provided with the message call
-    optional int32 gas_used = 12; // Gas used by the message call
+    optional int64 gas = 11; // Gas provided with the message call
+    optional int64 gas_used = 12; // Gas used by the message call
     optional int32 subtraces = 13; // Number of subtraces
     optional string trace_address = 14; // Comma separated list of trace address in call tree
     optional string error = 15; // Error if message call failed. This field doesn't contain top-level trace errors.

@@ -1,5 +1,5 @@
 config:
-  PROVIDER_URI: https://aurora-mainnet.core.chainstack.com/58201e52a1a19fdfc66effa28d0a9fb8
+  PROVIDER_URI: https://aurora.drpc.org
   STREAM_OUTPUT: projects/circle-ds-pipelines/topics/aurora
   ROOT_ENTITY_TYPE: block
   ENTITY_TYPES: block,transaction,log,token_transfer

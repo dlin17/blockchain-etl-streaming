@@ -25,4 +25,10 @@ message Transaction {
     optional int64 max_priority_fee_per_gas = 19;  // Fee given to miners to incentivize them to include the transaction
     optional int32 transaction_type = 20;  // Transaction type
     optional int64 receipt_effective_gas_price = 21;  // The actual value per gas deducted from the senders account. Replacement of gas_price after EIP-1559
+    optional string v = 22;  // ECDSA recovery id
+    optional string r = 23;  // ECDSA signature r
+    optional string s = 24;  // ECDSA signature s
+    optional int64 max_fee_per_blob_gas = 25;
+    repeated string blob_versioned_hashes = 26;
+
 }

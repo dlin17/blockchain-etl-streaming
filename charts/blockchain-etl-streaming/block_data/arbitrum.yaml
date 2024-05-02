@@ -4,16 +4,7 @@ config:
   ROOT_ENTITY_TYPE: block
   ENTITY_TYPES: block,transaction,log,token_transfer
   GCS_PREFIX: gs://circle-blockchain-etl-streaming/arbitrum
-  CHAIN: base
+  CHAIN: arbitrum
   CHAIN_TYPE: ethereum
   LAG_BLOCKS: 30
-  BLOCK_BATCH_SIZE: 1000
-
-stream:
-  resources:
-    requests:
-      memory: "2048Mi"
-      cpu: "300m"
-    limits:
-      memory: "4096Mi"
-      cpu: "800m"
+  BLOCK_BATCH_SIZE: 100

@@ -1,5 +1,5 @@
 config:
-  PROVIDER_URI: https://prod-optimism-bedrock-mainnet-us-east-1.blockchain.circle.com:8545/
+  PROVIDER_URI: https://radial-wispy-feather.optimism.quiknode.pro/2e0cecb02a62e4a21451ceb27ae26f2b389fd5c4/
   STREAM_OUTPUT: projects/circle-ds-pipelines/topics/optimism
   ROOT_ENTITY_TYPE: block
   ENTITY_TYPES: block,transaction,log,token_transfer

@@ -7,12 +7,13 @@ config:
   CHAIN: bnb
   CHAIN_TYPE: ethereum
   LAG_BLOCKS: 300
-  BLOCK_BATCH_SIZE: 25
-
+  BLOCK_BATCH_SIZE: 5
 
 stream:
   resources:
     requests:
-      memory: "1024Mi"
-    limits:
       memory: "2048Mi"
+      cpu: "300m"
+    limits:
+      memory: "4096Mi"
+      cpu: "800m"

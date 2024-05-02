@@ -1,5 +1,5 @@
 config:
-  PROVIDER_URI: https://ethereum-sepolia.blockpi.network/v1/rpc/public
+  PROVIDER_URI: https://prod-ethereum-geth-sepolia-us-east-1.blockchain.circle.com:8545/
   STREAM_OUTPUT: projects/circle-ds-pipelines/topics/ethereum_sepolia
   ROOT_ENTITY_TYPE: block
   ENTITY_TYPES: block,transaction,log,token_transfer

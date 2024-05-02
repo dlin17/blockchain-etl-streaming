@@ -13,9 +13,9 @@ entity_types = [
     "transactions",
     "logs",
     "token_transfers",
-    # "traces",
-    # "contracts",
-    # "tokens",
+    "traces",
+    "contracts",
+    "tokens",
 ]
 client = bigquery.Client()
 publisher = pubsub_v1.PublisherClient()
@@ -50,23 +50,31 @@ for entity_type in entity_types:
         table = client.create_table(table)
         print(f"Created table {table.project}.{table.dataset_id}.{table.table_id}")
 
-    topic_id = f"{dataset_id}.{entity_type}"
-
-    topic_path = publisher.topic_path(project_id, topic_id)
     schema_path = f"projects/{project_id}/schemas/{entity_type}"
+    topic_id = f"{dataset_id}.{entity_type}"
+    topic_path = publisher.topic_path(project_id, topic_id)
 
     # create topic if not exists, update schema if exists
     request = {
         "name": topic_path,
         "schema_settings": {"schema": schema_path, "encoding": "JSON"},
     }
+    # check if topic exists
     try:
         publisher.get_topic(request={"topic": topic_path})
+        topic_exists = True
         print(f"Topic {topic_path} already exists")
-
     except:
-        topic = publisher.create_topic(request=request)
-        print(f"Created topic: {topic.name}")
+        topic_exists = False
+        print(f"Topic {topic_path} does not exist")
+
+    if topic_exists:
+        # delete and recreate topic to update schema
+        publisher.delete_topic(request={"topic": topic_path})
+        print(f"Deleted topic: {topic_path}")
+
+    topic = publisher.create_topic(request=request)
+    print(f"Created topic: {topic.name}")
 
     # create pubsub to bigquery subscription if not exists
     subscription_id = f"{dataset_id}.{entity_type}.bigquery"
@@ -85,14 +93,18 @@ for entity_type in entity_types:
     try:
         subscriber.get_subscription(request={"subscription": subscription_path})
         print(f"Subscription {subscription_path} already exists")
+        # delete
+        subscriber.delete_subscription(request={"subscription": subscription_path})
     except:
-        subscription = subscriber.create_subscription(
-            request={
-                "name": subscription_path,
-                "topic": f"projects/{project_id}/topics/{dataset_id}.{entity_type}",
-                "bigquery_config": bigquery_config,
-                "ack_deadline_seconds": 120,
-            }
-        )
-        print(f"BigQuery subscription created: {subscription_path}.")
-        print(f"Table for subscription is: {table_id}")
+        pass
+
+    subscription = subscriber.create_subscription(
+        request={
+            "name": subscription_path,
+            "topic": topic_path,
+            "bigquery_config": bigquery_config,
+            "ack_deadline_seconds": 120,
+        }
+    )
+    print(f"BigQuery subscription created: {subscription_path}.")
+    print(f"Table for subscription is: {table_id}")

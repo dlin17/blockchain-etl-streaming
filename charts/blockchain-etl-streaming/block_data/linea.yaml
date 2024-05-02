@@ -1,5 +1,5 @@
 config:
-  PROVIDER_URI: http://10.128.15.218:8545,https://rpc.linea.build
+  PROVIDER_URI: https://rpc.linea.build #,http://10.128.15.218:8545
   STREAM_OUTPUT: projects/circle-ds-pipelines/topics/linea
   ROOT_ENTITY_TYPE: block
   ENTITY_TYPES: block,transaction,log,token_transfer
@@ -7,4 +7,4 @@ config:
   CHAIN: linea
   CHAIN_TYPE: ethereum
   LAG_BLOCKS: 30
-  BLOCK_BATCH_SIZE: 250
+  BLOCK_BATCH_SIZE: 25

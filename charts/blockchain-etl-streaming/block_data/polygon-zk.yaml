@@ -1,5 +1,5 @@
 config:
-  PROVIDER_URI: https://zkevm-rpc.com
+  PROVIDER_URI: https://alpha-boldest-theorem.zkevm-mainnet.quiknode.pro/5e4b45e115596df3b3a2f57108c8779d1715f358/
   STREAM_OUTPUT: projects/circle-ds-pipelines/topics/polygon_zk
   ROOT_ENTITY_TYPE: block
   ENTITY_TYPES: block,transaction,log,token_transfer
@@ -7,4 +7,4 @@ config:
   CHAIN: polygon_zk
   CHAIN_TYPE: ethereum
   LAG_BLOCKS: 30
-  BLOCK_BATCH_SIZE: 250
+  BLOCK_BATCH_SIZE: 50

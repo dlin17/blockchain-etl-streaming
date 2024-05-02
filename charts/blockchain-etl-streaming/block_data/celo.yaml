@@ -1,5 +1,5 @@
 config:
-  PROVIDER_URI: https://forno.celo.org
+  PROVIDER_URI: https://prod-celo-mainnet-us-east-1.blockchain.circle.com:8545
   STREAM_OUTPUT: projects/circle-ds-pipelines/topics/celo
   ROOT_ENTITY_TYPE: block
   ENTITY_TYPES: block,transaction,log,token_transfer
@@ -7,4 +7,13 @@ config:
   CHAIN: celo
   CHAIN_TYPE: ethereum
   LAG_BLOCKS: 60
-  BLOCK_BATCH_SIZE: 10
+  BLOCK_BATCH_SIZE: 50
+
+stream:
+  resources:
+    requests:
+      memory: "2048Mi"
+      cpu: "300m"
+    limits:
+      memory: "4096Mi"
+      cpu: "800m"

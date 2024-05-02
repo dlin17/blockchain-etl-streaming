@@ -6,5 +6,5 @@ config:
   GCS_PREFIX: gs://circle-blockchain-etl-streaming/ethereum
   CHAIN: base
   CHAIN_TYPE: ethereum
-  LAG_BLOCKS: 64
+  LAG_BLOCKS: 5
   BLOCK_BATCH_SIZE: 10
