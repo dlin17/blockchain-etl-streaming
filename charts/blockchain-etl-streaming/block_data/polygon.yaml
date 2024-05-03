@@ -7,7 +7,7 @@ config:
   CHAIN: polygon
   CHAIN_TYPE: ethereum
   LAG_BLOCKS: 200
-  BLOCK_BATCH_SIZE: 5
+  BLOCK_BATCH_SIZE: 25
 
 stream:
   resources:
